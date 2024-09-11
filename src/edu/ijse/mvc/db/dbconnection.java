@@ -6,23 +6,20 @@ import java.sql.SQLException;/*
  */
 package edu.ijse.mvc.db;
 
-/**
- *
- * @author AKILA
- */
-public class dbconnection {
-  private static dbconnection  dBConnection;
+
+public class DBconnection {
+ private static DBconnection ;
     
     private Connection connection;
 
-    private dbconnection() throws SQLException, ClassNotFoundException{
+    private DBconnection() throws SQLException, ClassNotFoundException{
         Class.forName("com.mysql.cj.jdbc.Driver");
         connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Supermarket", "root", "mysql");
     }
     
-    public static dbconnection getInstance() throws SQLException, ClassNotFoundException{
+    public static DBconnection getInstance() throws SQLException, ClassNotFoundException{
         if(dBConnection == null){
-            dBConnection = new dbconnection();
+            dBConnection = new DBconnection();
         }
         return dBConnection;
     }
